@@ -35,36 +35,41 @@ class _splashState extends State<splash> {
               ),
             ),
           ),
-          Positioned(
-            top: 280,
-            left: 75,
-            child: Text(
-              'Life In the UK',
-              style: GoogleFonts.roboto(
-                textStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25.sp,
-                  letterSpacing: 1,
-                  fontWeight: FontWeight.bold,
+         Padding(
+           padding: EdgeInsets.only(top:40.h,left: 22.w),
+           child: Text(
+                'Life In the UK',
+                style: GoogleFonts.roboto(
+                  textStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25.sp,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
+              
             ),
-          ),
-          Positioned(
-            top: 330, 
-            left: 75,
-            child: Text(
-              'Prepare. Excel. Thrive!',
-              style: GoogleFonts.roboto(
-                textStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.sp,
-                  letterSpacing: 1,
-                  fontWeight: FontWeight.bold,
+         ),
+          Padding(
+           padding: EdgeInsets.only(top:45.h,left: 22.w),
+           child: Text(
+                'Prepare. Excel. Thrive!',
+                style: GoogleFonts.roboto(
+                  textStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 19.sp,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ),
-          ),
+              
+            ),),
+
+            Align(
+
+             alignment: Alignment.bottomCenter,
+              child: Image.asset('assets/splash.png',width: double.infinity,),
+            )
         ],
       ),
     );
