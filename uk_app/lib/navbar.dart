@@ -2,137 +2,86 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:uk_app/screens/home.dart';
+
+import 'package:uk_app/screens/homee.dart';
+import 'package:uk_app/screens/more.dart';
+import 'package:uk_app/screens/stats.dart';
+import 'package:uk_app/text.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
-
   @override
-  State<BottomNavBar> createState() => _BottomNavBarState();
+  _BottomNavBarState createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-     List pages=[
-  Home(),
-  Home(),
-  Home(),
-  // Home(),
-  // Home()
+  int selectedIndex = 0; 
+    List<Widget> pages =const [
+    Homee(),
+    Stats(),
+    More(),
   ];
-  
-int changed_index=0;
-  void onTap(int index){
-setState(() {
-  changed_index=index;
-});
-  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[changed_index],
-      bottomNavigationBar: Container(
-        height: 12.h,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromRGBO(183, 23, 30, 1),
-              Color.fromRGBO(237, 27, 36, 1)
+      body: pages[selectedIndex],
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 9.h,
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(237, 27, 36, 1),
+            border: Border.all(color: Color.fromRGBO(183, 23, 30, 1), width: 0.25.w),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              _buildTabItem("Home", Icons.home, 0,),
+              Container(color: Colors.white, width: 0.5.w),
+              _buildTabItem("Stats", Icons.bar_chart_sharp, 1,),
+              Container(color: Colors.white, width: 0.5.w),
+              _buildTabItem("More", Icons.more_horiz_outlined, 2, ),
             ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
           ),
         ),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.transparent,
-          selectedFontSize: 0,
-          unselectedFontSize: 0,
-          onTap: onTap,
-          currentIndex: changed_index,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white,
-          showUnselectedLabels: false,
-          showSelectedLabels:false,
-          elevation: 0,
-          unselectedLabelStyle:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          selectedLabelStyle:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          items: [
-            buildBottomNavigationBarItem(Icons.home, 'Home', 0),
-          
-            buildBottomNavigationBarItem(Icons.bar_chart_sharp, 'Stats', 1),
-            // BottomNavigationBarItem(icon: Separator(),
-            //  label: ''),
-            buildBottomNavigationBarItem(Icons.more_horiz, 'More', 2),
-          ],
-        ),
       ),
     );
   }
 
-BottomNavigationBarItem buildBottomNavigationBarItem(
-      IconData icon, String label, int index) {
-    return BottomNavigationBarItem(
-      icon: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 25.sp,color: Colors.black,),
-           Text(
-              label,
+  Widget _buildTabItem(String title, IconData iconData, int index,) {
+    bool isSelected = index == selectedIndex; // Check if the item is currently selected
+    return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          // Update the selected index when an item is tapped
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Icon(iconData, color:Colors.white, size: 22.sp),
+            SizedBox(height: 4.sp), // Adjust the spacing between the icon and text as needed
+            Text(
+              title,
               style: TextStyle(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color:  Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 17.sp,
               ),
             ),
-            SizedBox(height:2.h),
-          if (index == changed_index)
-           
-             Align(
-              alignment:Alignment.bottomCenter,
-               child: Container(
-                  height:0.5.h,
-                  
-                  width: double.infinity,
-                  color: Colors.white, 
-                ),
-             ),
-           
-        ],
-      ),
-      label: '',
-    );
-  }
-
-}
-class Separator extends StatelessWidget{
-  final double separatorWidth;
-  final double itemHeight;
-  final Color separatorColor;
-
-  const Separator({
-    this.separatorWidth = 2.0,
-    this.itemHeight = 50,
-    this.separatorColor = Colors.white,
-
-});
-  @override
-  Widget build(BuildContext context){
-    return Container(
-      width: separatorWidth,
-      height: itemHeight,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            separatorColor,
-            separatorColor,
+            SizedBox(height: 2.5.h,),
+            Container(
+              height: 4.sp,
+              width: isSelected ? double.infinity : 0,
+              color: Colors.white,
+            ),
           ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
         ),
       ),
     );
   }
-  }
+}
+//      

@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "773585192873",
+    "project_id": "life-in-uk-57dd0",
+    "storage_bucket": "life-in-uk-57dd0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773585192873:android:45a72ccf332544b66d26b8",
+        "android_client_info": {
+          "package_name": "com.example.uk_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "773585192873-c0uj7bljpgq1erpu8if09k16rs524trn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAELU5oCW63IiHnRN_fhJ4EFwFDQZzi_HY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "773585192873-c0uj7bljpgq1erpu8if09k16rs524trn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773585192873:android:dd5fd2c2a9d997896d26b8",
+        "android_client_info": {
+          "package_name": "com.lifeintheuk.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "773585192873-c0uj7bljpgq1erpu8if09k16rs524trn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAELU5oCW63IiHnRN_fhJ4EFwFDQZzi_HY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "773585192873-c0uj7bljpgq1erpu8if09k16rs524trn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

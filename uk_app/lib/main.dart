@@ -3,14 +3,24 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:get/get.dart';
 import 'package:uk_app/Authentication/Login.dart';
 import 'package:uk_app/navbar.dart';
-import 'package:uk_app/screens/home.dart';
+import 'package:uk_app/screens/FAQ.dart';
+import 'package:uk_app/screens/Terms.dart';
+import 'package:uk_app/screens/chapters/chap1.dart';
+import 'package:uk_app/screens/homee.dart';
+import 'package:uk_app/screens/more.dart';
+import 'package:uk_app/screens/policy.dart';
 import 'package:uk_app/screens/splash.dart';
+import 'package:uk_app/screens/try.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'Authentication/Signup.dart';
+import 'screens/profile.dart';
 
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+     WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,9 +31,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(
       builder: (context, orientation, screenType) {
-    return const GetMaterialApp(
+
+    return   GetMaterialApp(
       title: 'Flutter Demo',
-   home: splash(),
+   home: BottomNavBar(),
    debugShowCheckedModeBanner: false,
     );
       }

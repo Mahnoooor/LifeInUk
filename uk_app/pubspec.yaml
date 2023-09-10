@@ -39,6 +39,13 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^4.0.4
   intl: ^0.17.0
+  firebase_auth: ^4.6.1
+  firebase_core: ^2.10.0
+  cloud_firestore: ^4.5.2
+  fluttertoast: ^8.2.1
+  syncfusion_flutter_charts: ^21.2.4
+  flutter_switch: ^0.3.2
+  shared_preferences: ^2.2.0
 
 dev_dependencies:
   flutter_test:
